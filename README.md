@@ -1,4 +1,5 @@
-![PostItLogo](https://raw.githubusercontent.com/jamesmontemagno/Post-It/master/Art/icons/postit/Icon@2x.png)Post It: Easy Social Media Updates
+![PostItLogo](https://raw.githubusercontent.com/jamesmontemagno/Post-It/master/Art/icons/postit/Icon@2x.png)
+Post It: Easy Social Media Updates
 =======
 
 Miss swipe to tweet? Have a love for integrated social media in an iOS? Then Post It was created for you. 
