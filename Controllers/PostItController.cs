@@ -213,6 +213,10 @@ namespace PostIt
 
 		private void CreateNotification(SLServiceKind framework)
 		{
+			//check if they want notifications or not
+			if (!Settings.Notifications)
+				return;
+
 			// create the notification
 			var notification = new UILocalNotification ();
 			// configure the alert stuff

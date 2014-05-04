@@ -6,8 +6,9 @@
     <ProjectGuid>{CE6D14A8-5A68-488E-B0DA-8D53B7F16308}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PostPlus</RootNamespace>
+    <RootNamespace>PostIt</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>PostIt</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,7 +25,6 @@
     <MtouchI18n>
     </MtouchI18n>
     <MtouchArch>ARMv7</MtouchArch>
-    <AssemblyName>PostIt</AssemblyName>
     <MtouchSdkVersion>7.1</MtouchSdkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
@@ -37,7 +37,6 @@
     <MtouchLink>None</MtouchLink>
     <ConsolePause>false</ConsolePause>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <AssemblyName>PostIt</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,10 +56,7 @@
     <MtouchI18n>
     </MtouchI18n>
     <MtouchArch>ARMv7, ARMv7s</MtouchArch>
-    <AssemblyName>PostPlus</AssemblyName>
     <MtouchUseLlvm>true</MtouchUseLlvm>
-    <MtouchUseSGen>true</MtouchUseSGen>
-    <MtouchEnableGenericValueTypeSharing>false</MtouchEnableGenericValueTypeSharing>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -72,7 +68,6 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <AssemblyName>PostPlus</AssemblyName>
     <MtouchSdkVersion>7.1</MtouchSdkVersion>
     <MtouchUseLlvm>true</MtouchUseLlvm>
     <MtouchUseSGen>true</MtouchUseSGen>
@@ -93,7 +88,6 @@
     <BuildIpa>true</BuildIpa>
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
-    <AssemblyName>PostPlus</AssemblyName>
     <MtouchSdkVersion>7.1</MtouchSdkVersion>
     <MtouchUseLlvm>true</MtouchUseLlvm>
     <MtouchI18n>
@@ -110,7 +104,6 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
-    <AssemblyName>PostPlus</AssemblyName>
     <MtouchSdkVersion>7.1</MtouchSdkVersion>
     <MtouchUseLlvm>true</MtouchUseLlvm>
     <MtouchI18n>
