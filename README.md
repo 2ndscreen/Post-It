@@ -17,6 +17,10 @@ Copy by: [Stephanie Sparer](http://www.twitter.com/stefispice)
 
 Icon by: [Seth D.](http://www.fiverr.com/atomicbliss)
 
+### Built with Xamarin Starter
+
+<a href="http://www.xamarin.com/starter" target="_blank"><img alt="Xamarin Starter Compatible" src="https://raw.githubusercontent.com/jamesmontemagno/My-StepCounter/master/Artwork/XamarinStarterCompatible.png"/></a>
+
 
 Screens:
 
