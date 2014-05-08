@@ -10,7 +10,11 @@ Post It is also highly customizable! Choose only the social networks you want to
 
 Post It supports: Facebook, Twitter, Sina Weibo, and Tencent Weibo 
 
-Created in C# with Xamarin
+Created in C# with [Xamarin](http://www.xamarin.com)
+
+<a href="https://itunes.apple.com/us/app/post-it-easy-social-media/id873991925?mt=8"" target="_blank"><img alt="Download on iOS app store now" src="https://raw.githubusercontent.com/jamesmontemagno/Post-It/master/Art/AppleAppStore.png"/></a>
+
+
 
 
 Copy by: [Stephanie Sparer](http://www.twitter.com/stefispice)
