@@ -70,6 +70,11 @@ namespace PostIt
 		public override void DidRegisterUserNotificationSettings (UIApplication application, UIUserNotificationSettings notificationSettings)
 		{
 			Helpers.Settings.Notifications = true;
+
+			if (postItController == null)
+				return;
+
+			postItController.CreateAllNotifcations ();
 		}
 			
 

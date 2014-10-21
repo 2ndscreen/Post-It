@@ -28,19 +28,22 @@ namespace PostIt
 					(tencent = new CheckboxElement("Tencent Weibo", Settings.Tencent))
 				},
 				new Section("Customization"){ 
-					new RootElement("Colors", 
-						(color = new RadioGroup("color", Settings.Color))){ 
-						new Section(){
-							new RadioElement("Blue", "color"),
-								new RadioElement("Dark Blue", "color"),
-								new RadioElement("Gray", "color"),
-								new RadioElement("Green", "color"),
-								new RadioElement("Light Gray", "color"),
-							new RadioElement("Pink (for @StefiSpice)", "color"),
-								new RadioElement("Purple", "color"),
-							}
-					},
-					(notifications = new CheckboxElement("Notifications", Settings.Notifications))
+					Footer = "Ensure notifications are enabled on your iOS devices main settings for Post It.",
+					Elements = new List<Element>{ 
+							new RootElement("Colors", 
+							(color = new RadioGroup("color", Settings.Color))){ 
+							new Section(){
+								new RadioElement("Blue", "color"),
+									new RadioElement("Dark Blue", "color"),
+									new RadioElement("Gray", "color"),
+									new RadioElement("Green", "color"),
+									new RadioElement("Light Gray", "color"),
+								new RadioElement("Pink (for @StefiSpice)", "color"),
+									new RadioElement("Purple", "color"),
+								}
+						},
+						(notifications = new CheckboxElement("Notifications", Settings.Notifications))
+					}
 				},
 				new Section ("Created") {
 					new StringElement ("By @JamesMontemagno", () => {

@@ -161,7 +161,7 @@ namespace PostIt
 				
 		}
 
-		void CreateAllNotifcations ()
+		public void CreateAllNotifcations ()
 		{
 			UIApplication.SharedApplication.CancelAllLocalNotifications ();
 
