@@ -57,7 +57,19 @@ namespace PostIt
 				}
 			}
 
+			if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+			{
+				const UIUserNotificationType notificationUserTypes = UIUserNotificationType.Alert;
+				UIUserNotificationSettings notificationSettings = UIUserNotificationSettings.GetSettingsForTypes(notificationUserTypes, null);
+				UIApplication.SharedApplication.RegisterUserNotificationSettings(notificationSettings);
+			}
+
 			return true;
+		}
+
+		public override void DidRegisterUserNotificationSettings (UIApplication application, UIUserNotificationSettings notificationSettings)
+		{
+			Helpers.Settings.Notifications = true;
 		}
 			
 

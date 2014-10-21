@@ -102,6 +102,15 @@ namespace PostIt
 		{
 			base.ViewWillDisappear (animated);
 
+			if (notifications.Value && !Settings.Notifications) {
+				if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+				{
+					const UIUserNotificationType notificationUserTypes = UIUserNotificationType.Alert;
+					UIUserNotificationSettings notificationSettings = UIUserNotificationSettings.GetSettingsForTypes(notificationUserTypes, null);
+					UIApplication.SharedApplication.RegisterUserNotificationSettings(notificationSettings);
+				}
+			}
+
 			Settings.Twitter = twitter.Value;
 			Settings.Facebook = facebook.Value;
 			Settings.Sina = sina.Value;

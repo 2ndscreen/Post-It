@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using MonoTouch.Dialog;
 using MonoTouch.Social;
 using PostIt.Helpers;
 
@@ -35,9 +32,7 @@ namespace PostIt
 			var infoButton = UIButton.FromType (UIButtonType.InfoLight);
 			infoButton.TintColor = UIColor.White;
 
-			infoButton.AddTarget ((s, e) => {
-				NavigationController.PushViewController(about, true);
-			}, UIControlEvent.TouchUpInside);
+			infoButton.AddTarget ((s, e) => NavigationController.PushViewController (about, true), UIControlEvent.TouchUpInside);
 
 			var infoBarButton = new UIBarButtonItem (infoButton);
 
@@ -60,21 +55,13 @@ namespace PostIt
 			sina.Font = FontToUse;
 			sina.SetTitle ("Sina", UIControlState.Normal);
 
-			facebook.TouchUpInside += (sender, e) => {
-				SendSocial(SLServiceKind.Facebook);
-			};
+			facebook.TouchUpInside += (sender, e) => SendSocial (SLServiceKind.Facebook);
 
-			twitter.TouchUpInside += (sender, e) => {
-				SendSocial(SLServiceKind.Twitter);
-			};
+			twitter.TouchUpInside += (sender, e) => SendSocial (SLServiceKind.Twitter);
 
-			tencent.TouchUpInside += (sender, e) => {
-				SendSocial(SLServiceKind.TencentWeibo);
-			};
+			tencent.TouchUpInside += (sender, e) => SendSocial (SLServiceKind.TencentWeibo);
 
-			sina.TouchUpInside += (sender, e) => {
-				SendSocial(SLServiceKind.SinaWeibo);
-			};
+			sina.TouchUpInside += (sender, e) => SendSocial (SLServiceKind.SinaWeibo);
 
 			facebook.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleTopMargin |
 				UIViewAutoresizing.FlexibleBottomMargin;
@@ -93,7 +80,6 @@ namespace PostIt
 		{
 			base.ViewWillAppear (animated);
 
-			UIApplication.SharedApplication.CancelAllLocalNotifications ();
 
 			UIButton.Appearance.TintColor = UIColor.White;
 			facebook.RemoveFromSuperview ();
@@ -136,17 +122,11 @@ namespace PostIt
 				tencent.Frame = new System.Drawing.RectangleF (0, top, View.Frame.Width, 80);
 				top = tencent.Frame.Bottom + padding;
 				View.Add (tencent);
-				CreateNotification (SLServiceKind.TencentWeibo);
+
 			}
 
-			if(Settings.Sina)
-				CreateNotification (SLServiceKind.SinaWeibo);
-			if(Settings.Facebook)
-				CreateNotification (SLServiceKind.Facebook);
-			if(Settings.Twitter)
-				CreateNotification (SLServiceKind.Twitter);
-
-
+			CreateAllNotifcations ();
+		
 
 			switch (Settings.Color) {
 			case 0:
@@ -181,6 +161,20 @@ namespace PostIt
 				
 		}
 
+		void CreateAllNotifcations ()
+		{
+			UIApplication.SharedApplication.CancelAllLocalNotifications ();
+
+
+			if (Settings.Tencent)
+				CreateNotification (SLServiceKind.TencentWeibo);
+			if (Settings.Sina)
+				CreateNotification (SLServiceKind.SinaWeibo);
+			if (Settings.Facebook)
+				CreateNotification (SLServiceKind.Facebook);
+			if (Settings.Twitter)
+				CreateNotification (SLServiceKind.Twitter);
+		}
 
 		public void SendSocial(SLServiceKind framework)
 		{
@@ -192,11 +186,11 @@ namespace PostIt
 			}
 
 			slComposer.CompletionHandler += (result) => {
-				InvokeOnMainThread (() => {
-					DismissViewController (true, null);
-				});
+				InvokeOnMainThread (() => DismissViewController (true, null));
 			};
-			PresentViewController(slComposer, true, null);
+			PresentViewControllerAsync(slComposer, true);
+
+			CreateAllNotifcations ();
 		}
 
 		public static UIFont FontToUse = UIFont.FromName(FontLightName,
@@ -236,8 +230,11 @@ namespace PostIt
 				break;
 			}
 
+		
+			notification.FireDate = NSDate.Now.AddSeconds (.1);
+
 			// schedule it
-			UIApplication.SharedApplication.PresentLocationNotificationNow (notification);
+			UIApplication.SharedApplication.ScheduleLocalNotification (notification);
 		}
 	}
 }
